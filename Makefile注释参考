@@ -1,23 +1,23 @@
 #参考： https://www.cnblogs.com/lidabo/p/4521123.html
 CROSS_COMPILE = arm-linux-
 AS		= $(CROSS_COMPILE)as
-LD		= $(CROSS_COMPILE)ld  			#链接工具
-CC		= $(CROSS_COMPILE)gcc  			#编译工具
+LD		= $(CROSS_COMPILE)ld  		#链接工具
+CC		= $(CROSS_COMPILE)gcc  		#编译工具
 CPP		= $(CC) -E
-AR		= $(CROSS_COMPILE)ar  			#打包工具
+AR		= $(CROSS_COMPILE)ar  		#打包工具
 NM		= $(CROSS_COMPILE)nm
 
 STRIP		= $(CROSS_COMPILE)strip		#优化工具
 OBJCOPY		= $(CROSS_COMPILE)objcopy
 OBJDUMP		= $(CROSS_COMPILE)objdump
 
-export AS LD CC CPP AR NM				#将定义的变量导出，方便其他makefile使用
+export AS LD CC CPP AR NM			#将定义的变量导出，方便其他makefile使用
 export STRIP OBJCOPY OBJDUMP	
 
-CFLAGS := -Wall -O2 -g					#编译器参数
+CFLAGS := -Wall -O2 -g				#编译器参数
 CFLAGS += -I $(shell pwd)/include		#指定编译器头文件（可变）
 
-LDFLAGS := -lm -lfreetype				#指定编译器链接库（可变）
+LDFLAGS := -lm -lfreetype			#指定编译器链接库（可变）
 
 export CFLAGS LDFLAGS
 
